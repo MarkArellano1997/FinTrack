@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FinTrack - Perfil</title>
+
+    <!-- Bootstrap se mantiene para formularios, botones, validaciones, select y switch.
+         Se coloca en una capa propia para que no cambie el estilo Tailwind del menú -->
+    <style>
+        @layer theme, base, bootstrap, components, utilities;
+        @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css") layer(bootstrap);
+    </style>
+
+    <!-- Tailwind conserva el estilo original de la plantilla y del menu-->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Estilos exclusivos de la pantalla Perfil -->
+    <link rel="stylesheet" href="css/perfil.css">
+</head>
+
+<body>
+    <div class="flex">
+        <!-- MENÚ IZQUIERDO: COPIA DEL SIDEBAR ORIGINAL DE inicio.html -->
+        <div class="fintrack-sidebar flex h-screen flex-col justify-between border-e border-gray-100 bg-white md:w-1/5">
+            <div class="p-4">
+                <div class="h-60 w-60 m-auto">
+                    <img src='images/logo.png' alt='' class="h-full">
+                </div>
+
+                <div class="">
+                    <h4 class="font-semibold">Principal</h4>
+
+                    <ul class="mt-4 space-y-1">
+                        <li>
+                            <a href="inicio.html" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                                Movimientos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="#" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                                Reportes
+                            </a>
+                        </li>
+
+                        <li>
+                            <details open class="group [&_summary::-webkit-details-marker]:hidden"><!--Es parte del sidebar cuenta lo que baja-->
+                                <summary
+                                    class="flex items-center justify-between rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                                    Cuenta
+
+                                    <span class="shrink-0 transition duration-300 group-open:-rotate-180">
+                                        <svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" class="size-5"
+                                            viewBox="0 0 20 20" fill="currentColor">
+                                            <path fill-rule="evenodd"
+                                                d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                                                clip-rule="evenodd" />
+                                        </svg>
+                                    </span>
+                                </summary>
+
+                                <ul class="mt-2 space-y-1 px-4">
+                                    <li>
+                                        <a href="perfil.html"
+                                            class="block rounded-lg bg-gray-100 px-4 py-2 text-sm font-medium text-gray-900">
+                                            Perfil
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#"
+                                            class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                                            Configuracion
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#"
+                                            class="w-full rounded-lg px-4 py-2 [text-align:inherit] text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
+                                            Cerrar sesion
+                                        </a>
+                                    </li>
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+
+            </div>
+
+            <div class="sticky inset-x-0 bottom-0 border-t border-gray-100"><!-- se jala-->
+                <a href="perfil.html" class="flex items-center gap-2 bg-white p-4 hover:bg-gray-50 hover:transition-colors">
+                    <img id="sidebarFoto" alt="Foto del usuario" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"
+                        class="size-10 rounded-full object-cover" />
+
+                    <p class="text-xs text-gray-900">
+                        <strong id="sidebarNombre" class="block font-medium">Eric Frusciante</strong>
+
+                        <span id="sidebarCorreo"> eric@frusciante.com </span>
+                    </p>
+                </a>
+            </div>
+        </div>
+
+
+        <!-- CONTENIDO DE PERFIL -->
+        <main id="perfilContenido" class="profile-main flex-1 h-screen overflow-y-auto bg-gray-50">
+
+            <div class="profile-wrapper">
+
+                <section class="mb-7">
+
+                    <p class="profile-eyebrow">MI CUENTA</p>
+
+                    <div class="flex items-start justify-between gap-4">
+
+                        <div>
+                            <h1 class="profile-title">Perfil</h1>
+
+                            <p class="profile-description">
+                                Gestiona tus datos personales, el presupuesto,
+                                metas de ahorro y preferencias visuales. 🙂
+                            </p>
+                        </div>
+                    </div>
+
+                </section>
+
+
+                <!-- DATOS DEL USUARIO -->
+                <section class="profile-card">
+
+                    <div class="profile-card-top">
+
+                        <div class="profile-card-heading profile-card-heading-no-margin">
+
+                            <div class="profile-icon profile-icon-green">
+                                👤
+                            </div>
+
+                            <div>
+                                <h2>Datos del usuario</h2>
+                                <p>Consulta o modifica tu información personal.</p>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                    <div class="profile-divider"></div>
+
+
+                    <!-- PERFIL ACTUAL -->
+                    <div class="saved-profile">
+
+                        <img id="fotoPerfilVista" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"alt="Foto de perfil"class="saved-profile-photo">
+
+                        <div class="saved-profile-text">
+                            <p class="saved-label">PERFIL ACTUAL</p>
+                            <h3 id="nombrePerfilVista">Eric Frusciante</h3>
+                            <p id="correoPerfilVista">eric@frusciante.com</p>
+                        </div>
+
+                    </div>
+
+
+                    <!-- EDITOR -->
+                    <div class="profile-editor">
+
+                        <div class="profile-divider"></div>
+
+                        <div class="editor-heading">
+                            <h3>Modificar perfil</h3>
+                            <p>
+                                Cambia tu foto, nombre, apellidos o correo.
+                            </p>
+                        </div>
+
+
+                        <!-- FOTO -->
+                        <div class="photo-editor">
+
+                            <img id="fotoPreview" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160" alt="Vista previa de foto" class="photo-preview">
+
+                            <div>
+
+                                <p class="profile-label mb-2">
+                                    Cambiar foto
+                                </p>
+
+                                <div class="flex flex-wrap gap-2">
+
+                                    <label
+                                        for="fotoUsuario"
+                                        class="btn btn-outline-success btn-sm photo-file-label">
+                                        📷 Seleccionar foto
+                                    </label>
+
+                                    <input
+                                        id="fotoUsuario"
+                                        type="file"
+                                        accept="image/*"
+                                        class="hidden">
+
+                                    <button
+                                        id="quitarFoto"
+                                        type="button"
+                                        class="btn btn-link btn-sm text-secondary p-0">
+                                        Quitar foto
+                                    </button>
+
+                                </div>
+
+                                <p id="fotoAyuda" class="photo-help">
+                                    Imagen. Máximo 2 MB.
+                                </p>
+
+                            </div>
+
+                        </div>
+
+                        <div class="profile-divider"></div>
+
+
+                        <form id="formPerfil" novalidate>
+
+                            <div class="row g-4">
+
+                                <div class="col-md-6">
+                                    <label for="nombre" class="profile-label form-label">
+                                        Nombre
+                                    </label>
+
+                                    <input
+                                        id="nombre"
+                                        type="text"
+                                        class="profile-input form-control"
+                                        required>
+
+                                    <div class="invalid-feedback">
+                                        Ingresa tu nombre.
+                                    </div>
+                                </div>
+
+
+                                <div class="col-md-6">
+                                    <label for="apellido" class="profile-label form-label">
+                                        Apellidos
+                                    </label>
+
+                                    <input
+                                        id="apellido"
+                                        type="text"
+                                        class="profile-input form-control"
+                                        required>
+
+                                    <div class="invalid-feedback">
+                                        Ingresa tus apellidos.
+                                    </div>
+                                </div>
+
+                            </div>
+
+
+                            <div class="mt-5">
+
+                                <label for="correo" class="profile-label form-label">
+                                    Correo electrónico
+                                </label>
+
+                                <input
+                                    id="correo"
+                                    type="email"
+                                    class="profile-input form-control"
+                                    required>
+
+                                <div class="invalid-feedback">
+                                    Ingresa un correo válido.
+                                </div>
+
+                            </div>
+
+
+                            <div class="form-actions">
+
+                                <button
+                                    type="submit"
+                                    class="btn btn-success px-4">
+                                    💾 Guardar cambios
+                                </button>
+
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                </section>
+
+
+                <!-- PRESUPUESTO Y META -->
+                <div class="profile-grid profile-grid-two mt-6">
+
+                    <section class="profile-card profile-card-no-margin">
+
+                        <div class="profile-card-heading">
+
+                            <div class="profile-icon profile-icon-green">
+                                💳
+                            </div>
+
+                            <div>
+                                <h2>Presupuesto mensual</h2>
+                                <p>Define cuánto deseas gastar al mes.</p>
+                            </div>
+
+                        </div>
+
+                        <label for="presupuesto" class="profile-label">
+                            Presupuesto
+                        </label>
+
+                        <div class="profile-money-input">
+
+                            <span id="simboloPresupuesto">S/</span>
+
+                            <input
+                                id="presupuesto"
+                                type="number"
+                                min="0"
+                                placeholder="Ingresa tu presupuesto">
+
+                        </div>
+
+                        <button
+                            id="guardarPresupuesto"
+                            type="button"
+                            class="btn btn-outline-success mt-4">
+                            Guardar presupuesto
+                        </button>
+
+                    </section>
+
+
+                    <section class="profile-card profile-card-no-margin">
+
+                        <div class="profile-card-heading">
+
+                            <div class="profile-icon profile-icon-blue">
+                                🐖
+                            </div>
+
+                            <div>
+                                <h2>Meta de ahorro</h2>
+                                <p>Establece cuánto deseas ahorrar.</p>
+                            </div>
+
+                        </div>
+
+                        <label for="metaAhorro" class="profile-label">
+                            Meta mensual
+                        </label>
+
+                        <div class="profile-money-input">
+
+                            <span id="simboloMeta">S/</span>
+
+                            <input
+                                id="metaAhorro"
+                                type="number"
+                                min="0"
+                                placeholder="Ingresa tu meta">
+
+                        </div>
+
+                        <button
+                            id="guardarMeta"
+                            type="button"
+                            class="btn btn-outline-success mt-4">
+                            Guardar meta
+                        </button>
+
+                    </section>
+
+                </div>
+
+
+                <!-- PREFERENCIAS -->
+                <section class="profile-card mt-6">
+
+                    <div class="profile-card-heading">
+
+                        <div class="profile-icon profile-icon-gray">
+                            ⚙️
+                        </div>
+
+                        <div>
+                            <h2>Preferencias</h2>
+                            <p>Personaliza tu experiencia en FinTrack.</p>
+                        </div>
+
+                    </div>
+
+                    <div class="profile-preference-row">
+
+                        <div>
+                            <h3>Moneda</h3>
+                            <p>Selecciona la moneda utilizada en el sistema. No convierte los montos automáticamente.</p>
+                        </div>
+
+                        <select id="moneda" class="profile-select form-select">
+                            <option value="PEN">Sol peruano (S/)</option>
+                            <option value="USD">Dólar estadounidense ($)</option>
+                            <option value="EUR">Euro (€)</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="profile-divider"></div>
+
+
+                    <div class="profile-preference-row">
+
+                        <div>
+                            <h3>🌙 Modo oscuro</h3>
+                            <p>Cambia la apariencia del área de contenido.</p>
+                        </div>
+
+                        <div class="form-check form-switch m-0">
+                            <input
+                                id="modoOscuro"
+                                class="form-check-input"
+                                type="checkbox"
+                                role="switch"
+                                aria-label="Activar modo oscuro">
+                        </div>
+
+                    </div>
+
+                </section>
+
+            </div>
+
+
+
+
+        </main>
+    </div>
+
+    <!-- JavaScript exclusivo de Perfil -->
+    <script src="js/perfil.js"></script>
+</body>
+
+</html>
