@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Reportes - FinTrack</title>
+
+    <link rel="stylesheet" href="css/reportes.css">
+</head>
+
+<body>
+
+    <div class="layout">
+
+        <!-- =
+             SIDEBAR
+        -->
+
+        <aside class="sidebar">
+
+            <div class="sidebar-top">
+
+                <div class="logo">
+                    <img src="images/logo.png" alt="FinTrack">
+                </div>
+
+                <div>
+
+                    <h4>Principal</h4>
+
+                    <ul class="nav-list">
+
+                        <li>
+                            <a href="inicio.html">
+                                Inicio
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="movimientos.html">
+                                Movimientos
+                            </a>
+                        </li>
+
+                        <li>
+                            <a href="reportes.html" class="active">
+                                Reportes
+                            </a>
+                        </li>
+
+                        <li>
+
+                            <details>
+
+                                <summary>
+                                    Cuenta
+
+                                    <span>⌄</span>
+                                </summary>
+
+                                <ul class="submenu">
+
+                                    <li>
+                                        <a href="#">
+                                            Perfil
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            Configuración
+                                        </a>
+                                    </li>
+
+                                    <li>
+                                        <a href="#">
+                                            Cerrar sesión
+                                        </a>
+                                    </li>
+
+                                </ul>
+                            </details>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- PERFIL -->
+
+            <div class="profile">
+
+                <img
+                    src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"
+                    alt="Perfil">
+                <div>
+
+                    <strong>
+                        Eric Frusciante
+                    </strong>
+
+                    <span>
+                        eric@frusciante.com
+                    </span>
+
+                </div>
+            </div>
+        </aside>
+
+        <!-- 
+             CONTENIDO
+        -->
+
+        <main class="content">
+
+            <header class="page-header">
+
+                <div>
+
+                    <h1>
+                        Reportes
+                    </h1>
+
+                    <p>
+                        Consulta y analiza tus ingresos y gastos.
+                    </p>
+
+                </div>
+
+                <!-- FILTROS -->
+
+                <div class="filters">
+
+                    <div>
+
+                        <label for="mesReporte">
+                            Mes
+                        </label>
+
+                        <select id="mesReporte">
+                        </select>
+
+                    </div>
+
+                    <div>
+
+                        <label for="categoriaReporte">
+                            Categoría
+                        </label>
+
+                        <select id="categoriaReporte">
+
+                            <option value="todas">
+                                Todas
+                            </option>
+
+                        </select>
+
+                    </div>
+
+                </div>
+
+            </header>
+
+            <!--
+                 RESUMEN MENSUAL
+            -->
+
+            <section>
+
+                <div class="section-title">
+
+                    <h2>
+                        Reporte mensual
+                    </h2>
+
+                    <p id="textoMes">
+                        Resumen del mes seleccionado.
+                    </p>
+
+                </div>
+
+
+                <div class="summary-grid">
+
+                    <!-- INGRESOS -->
+
+                    <article class="summary-card">
+
+                        <span>
+                            Ingresos
+                        </span>
+
+                        <strong
+                            id="totalIngresos"
+                            class="income">
+                            S/ 0.00
+                        </strong>
+
+                        <small>
+                            Dinero recibido.
+                        </small>
+
+                    </article>
+
+
+                    <!-- GASTOS -->
+
+                    <article class="summary-card">
+
+                        <span>
+                            Gastos
+                        </span>
+
+                        <strong
+                            id="totalGastos"
+                            class="expense">
+                            S/ 0.00
+                        </strong>
+
+                        <small>
+                            Dinero utilizado.
+                        </small>
+
+                    </article>
+
+                    <!-- BALANCE -->
+
+                    <article class="summary-card">
+
+                        <span>
+                            Balance
+                        </span>
+
+                        <strong id="totalBalance">
+                            S/ 0.00
+                        </strong>
+
+                        <small>
+                            Ingresos menos gastos.
+                        </small>
+
+                    </article>
+                </div>
+            </section>
+
+            <!-- 
+                 INGRESOS VS GASTOS
+             -->
+
+            <section class="report-card">
+
+                <div class="section-title">
+
+                    <h2>
+                        Ingresos vs. gastos
+                    </h2>
+
+                    <p>
+                        Comparación del dinero recibido y gastado.
+                    </p>
+
+                </div>
+
+                <!-- INGRESOS -->
+
+                <div class="bar-item">
+
+                    <div class="bar-info">
+
+                        <span>
+                            Ingresos
+                        </span>
+
+                        <strong id="labelIngresos">
+                            S/ 0.00
+                        </strong>
+
+                    </div>
+
+                    <div class="bar-background">
+
+                        <div
+                            id="barraIngresos"
+                            class="bar income-bar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <!-- GASTOS -->
+
+                <div class="bar-item">
+
+                    <div class="bar-info">
+
+                        <span>
+                            Gastos
+                        </span>
+
+                        <strong id="labelGastos">
+                            S/ 0.00
+                        </strong>
+
+                    </div>
+
+                    <div class="bar-background">
+
+                        <div
+                            id="barraGastos"
+                            class="bar expense-bar">
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <p
+                    id="mensajeComparacion"
+                    class="comparison-message">
+                </p>
+
+            </section>
+
+            <!-- 
+                 GASTOS POR CATEGORÍA
+             -->
+            <section class="report-card">
+
+                <div class="section-title">
+
+                    <h2>
+                        Gastos por categoría
+                    </h2>
+
+                    <p>
+                        Distribución de tus gastos.
+                    </p>
+
+                </div>
+
+
+                <div id="categoriasLista">
+
+                </div>
+
+                <p
+                    id="sinCategorias"
+                    class="empty-message">
+
+                    No existen gastos registrados
+                    en este mes.
+
+                </p>
+
+            </section>
+
+            <!-- BALANCE-->
+
+            <section class="report-card">
+
+                <div class="section-title">
+
+                    <h2>
+                        Balance
+                    </h2>
+
+                    <p>
+                        Resultado financiero del mes.
+                    </p>
+
+                </div>
+
+
+                <div id="balanceCard" class="balance-card">
+
+                    <div class="balance-icon">
+                        S/
+                    </div>
+
+
+                    <div>
+
+                        <span>
+                            Balance del mes
+                        </span>
+
+                        <strong id="balanceFinal">
+                            S/ 0.00
+                        </strong>
+
+                        <p id="balanceDescripcion">
+                            Aquí aparecerá el resultado.
+                        </p>
+                        
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <script src="js/reportes.js"></script>
+</body>
+</html>
