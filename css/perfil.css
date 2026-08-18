@@ -1,433 +1,145 @@
-/* COMPATIBILIDAD DEL MENÚ DEL GRUPO
-   Bootstrap se usa dentro de Perfil, pero estas reglas evitan que sus estilos
-   generales cambien enlaces, títulos y listas del sidebar hecho con Tailwind. */
-:where(.fintrack-sidebar) a {
-    color: inherit;
-    text-decoration: none;
-}
+/* Modo oscuro del contenido. */
 
-:where(.fintrack-sidebar) h4,
-:where(.fintrack-sidebar) p {
-    margin: 0;
-}
-
-:where(.fintrack-sidebar) h4 {
-    font-size: inherit;
-    line-height: inherit;
-}
-
-:where(.fintrack-sidebar) ul {
-    margin: 0;
-    padding: 0;
-    list-style: none;
-}
-
-/* PERFIL */
-
-.profile-main {
-    min-width: 0;
-    color: #111827;
+.fintrack-content {
     transition: background-color .25s ease, color .25s ease;
 }
 
-.profile-wrapper {
-    width: min(1120px, calc(100% - 56px));
-    margin: 0 auto;
-    padding: 48px 0 56px;
-}
-
-.profile-eyebrow {
-    margin: 0 0 8px;
-    color: #16a34a;
-    font-size: 13px;
-    font-weight: 800;
-    letter-spacing: .13em;
-}
-
-.profile-title {
-    margin: 0;
-    color: #111827;
-    font-size: 34px;
-    line-height: 1.15;
-    font-weight: 800;
-}
-
-.profile-description {
-    margin-top: 8px;
-    color: #6b7280;
-    font-size: 16px;
-}
-
-.profile-header-icon {
-    width: 58px;
-    height: 58px;
-    flex: 0 0 58px;
-    border-radius: 18px;
-    display: grid;
-    place-items: center;
-    background: #dcfce7;
-    font-size: 25px;
-}
-
-.profile-card {
-    margin-bottom: 0;
-    padding: 28px;
-    background: #ffffff;
-    border: 1px solid #e5e7eb;
-    border-radius: 18px;
-    box-shadow: 0 4px 16px rgba(15, 23, 42, .04);
-}
-
-.profile-card-no-margin {
-    height: 100%;
-}
-
-.profile-card-top {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-}
-
-.profile-card-heading {
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    margin-bottom: 24px;
-}
-
-.profile-card-heading-no-margin {
-    margin-bottom: 0;
-}
-
-.profile-card-heading h2 {
-    margin: 0;
-    color: #111827;
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.profile-card-heading p {
-    margin: 3px 0 0;
-    color: #6b7280;
-    font-size: 13px;
-}
-
-.profile-icon {
-    width: 44px;
-    height: 44px;
-    flex: 0 0 44px;
-    border-radius: 12px;
-    display: grid;
-    place-items: center;
-    font-size: 20px;
-}
-
-.profile-icon-green { background: #dcfce7; }
-.profile-icon-blue { background: #dbeafe; }
-.profile-icon-gray { background: #f3f4f6; }
-
-.profile-divider {
-    height: 1px;
-    margin: 22px 0;
-    background: #e5e7eb;
-}
-
-/* PERFIL ACTUAL */
-
-.saved-profile {
-    display: flex;
-    align-items: center;
-    gap: 18px;
-}
-
-.saved-profile-photo {
-    width: 78px;
-    height: 78px;
-    flex: 0 0 78px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #dcfce7;
-}
-
-.saved-label {
-    margin: 0 0 3px;
-    color: #16a34a;
-    font-size: 11px;
-    font-weight: 800;
-    letter-spacing: .09em;
-}
-
-.saved-profile h3 {
-    margin: 0;
-    color: #111827;
-    font-size: 20px;
-    font-weight: 800;
-}
-
-.saved-profile-text > p:last-child {
-    margin: 4px 0 0;
-    color: #6b7280;
-    font-size: 13px;
-}
-
-/* EDITOR */
-
-.editor-heading {
-    margin-bottom: 22px;
-}
-
-.editor-heading h3 {
-    margin: 0;
-    color: #111827;
-    font-size: 18px;
-    font-weight: 800;
-}
-
-.editor-heading p {
-    margin: 4px 0 0;
-    color: #6b7280;
-    font-size: 13px;
-}
-
-.photo-editor {
-    display: flex;
-    align-items: center;
-    gap: 20px;
-}
-
-.photo-preview {
-    width: 92px;
-    height: 92px;
-    flex: 0 0 92px;
-    border-radius: 50%;
-    object-fit: cover;
-    border: 4px solid #dcfce7;
-    background: #f3f4f6;
-}
-
-.photo-file-label {
-    min-height: 40px !important;
-    padding: 0 15px !important;
-    font-size: 13px !important;
-}
-
-.photo-help {
-    margin-top: 8px;
-    color: #9ca3af;
-    font-size: 11px;
-}
-
-.profile-grid {
-    display: grid;
-    gap: 24px;
-}
-
-.profile-grid-two {
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-}
-
-/* FORMULARIO */
-
-.profile-label {
-    display: block;
-    margin-bottom: 8px;
-    color: #374151;
-    font-size: 13px;
-    font-weight: 700;
-}
-
-.profile-input,
-.profile-select,
-.profile-money-input {
-    width: 100%;
-    min-height: 50px;
-    border: 1px solid #d1d5db;
-    border-radius: 12px;
-    background: #ffffff;
-    color: #111827;
-    transition: border-color .2s ease, box-shadow .2s ease;
-}
-
-.profile-input {
-    padding: 0 15px;
-    outline: none;
-}
-
-.profile-input:focus,
-.profile-select:focus,
-.profile-money-input:focus-within {
-    border-color: #4ade80;
-    box-shadow: 0 0 0 3px rgba(74, 222, 128, .15);
-}
-
-
-.form-actions {
-    display: flex;
-    justify-content: flex-end;
-    gap: 10px;
-    margin-top: 24px;
-}
-
-/* DINERO */
-
-.profile-money-input {
-    display: flex;
-    align-items: center;
-    overflow: hidden;
-}
-
-.profile-money-input span {
-    align-self: stretch;
-    display: grid;
-    place-items: center;
-    padding: 0 14px;
-    border-right: 1px solid #e5e7eb;
-    background: #f9fafb;
-    color: #374151;
-    font-weight: 700;
-}
-
-.profile-money-input input {
-    min-width: 0;
-    flex: 1;
-    height: 48px;
-    border: 0;
-    outline: none;
-    padding: 0 14px;
-    background: transparent;
-    color: inherit;
-}
-
-/* PREFERENCIAS */
-
-.profile-preference-row {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 24px;
-}
-
-.profile-preference-row h3 {
-    margin: 0;
-    color: #111827;
-    font-size: 15px;
-    font-weight: 800;
-}
-
-.profile-preference-row p {
-    margin: 4px 0 0;
-    color: #6b7280;
-    font-size: 13px;
-}
-
-.profile-select {
-    width: 240px;
-    padding: 0 14px;
-    outline: none;
-}
-
-/* DARK */
-
-.profile-main.profile-dark {
+body.fintrack-dark .fintrack-content {
     background: #111827 !important;
-    color: #f9fafb;
+    color: #f9fafb !important;
 }
 
-.profile-main.profile-dark .profile-title,
-.profile-main.profile-dark .profile-card-heading h2,
-.profile-main.profile-dark .profile-preference-row h3,
-.profile-main.profile-dark .saved-profile h3,
-.profile-main.profile-dark .editor-heading h3 {
-    color: #f9fafb;
+body.fintrack-dark .fintrack-inicio {
+    color: #f9fafb !important;
 }
 
-.profile-main.profile-dark .profile-description,
-.profile-main.profile-dark .profile-card-heading p,
-.profile-main.profile-dark .profile-preference-row p,
-.profile-main.profile-dark .editor-heading p,
-.profile-main.profile-dark .saved-profile-text > p:last-child {
-    color: #9ca3af;
+body.fintrack-dark .fintrack-content .page-title,
+body.fintrack-dark .fintrack-content .summary-value:not(.summary-value--income):not(.summary-value--expense):not(.summary-value--negative),
+body.fintrack-dark .fintrack-content .mov-desc {
+    color: #f9fafb !important;
 }
 
-.profile-main.profile-dark .profile-card {
-    background: #1f2937;
-    border-color: #374151;
+body.fintrack-dark .fintrack-content .page-subtitle,
+body.fintrack-dark .fintrack-content .summary-label,
+body.fintrack-dark .fintrack-content .mov-cat,
+body.fintrack-dark .fintrack-content .day-group__title,
+body.fintrack-dark .fintrack-content .empty-state,
+body.fintrack-dark .fintrack-content .link-button {
+    color: #9ca3af !important;
 }
 
-.profile-main.profile-dark .profile-label {
-    color: #d1d5db;
+body.fintrack-dark .fintrack-content .summary-card,
+body.fintrack-dark .fintrack-content .filter-bar,
+body.fintrack-dark .fintrack-content .day-group__list {
+    background: #1f2937 !important;
+    border-color: #374151 !important;
 }
 
-.profile-main.profile-dark .profile-input,
-.profile-main.profile-dark .profile-select,
-.profile-main.profile-dark .profile-money-input {
-    background: #111827;
-    border-color: #4b5563;
-    color: #f9fafb;
+body.fintrack-dark .fintrack-content .day-group__list > * + * {
+    border-color: #374151 !important;
 }
 
-.profile-main.profile-dark .profile-money-input span {
-    background: #374151;
-    border-color: #4b5563;
-    color: #f9fafb;
+body.fintrack-dark .fintrack-content .mov-row:hover {
+    background: #273449 !important;
 }
 
-.profile-main.profile-dark .profile-divider {
-    background: #374151;
+body.fintrack-dark .fintrack-content .input,
+body.fintrack-dark .fintrack-content .select {
+    background: #111827 !important;
+    border-color: #4b5563 !important;
+    color: #f9fafb !important;
 }
 
-/* RESPONSIVE */
-
-@media (max-width: 900px) {
-    .profile-wrapper {
-        width: min(100% - 36px, 1120px);
-        padding: 32px 0 40px;
-    }
-
-    .profile-grid-two {
-        grid-template-columns: 1fr;
-    }
-
-    .profile-card-top {
-        align-items: flex-start;
-        flex-direction: column;
-    }
+body.fintrack-dark .fintrack-content .input::placeholder {
+    color: #9ca3af !important;
 }
 
-@media (max-width: 640px) {
-    .profile-wrapper {
-        width: calc(100% - 24px);
-    }
-
-    .profile-card {
-        padding: 20px;
-    }
-
-    .profile-preference-row,
-    .photo-editor,
-    .saved-profile {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .profile-select {
-        width: 100%;
-    }
+body.fintrack-dark .fintrack-content .link-button:hover {
+    color: #f9fafb !important;
 }
 
-.fintrack-sidebar details[open] ul {
-    animation: abrirMenu 0.25s ease;
+body.fintrack-dark .fintrack-content .mov-action-btn:hover {
+    background: #374151 !important;
+    color: #f9fafb !important;
 }
 
-@keyframes abrirMenu {
-    from {
-        opacity: 0;
-        transform: translateY(-5px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+body.fintrack-dark .modal-card {
+    background: #1f2937 !important;
+    color: #f9fafb !important;
 }
+
+body.fintrack-dark .modal-title,
+body.fintrack-dark .confirm-title {
+    color: #f9fafb !important;
+}
+
+body.fintrack-dark .form-label,
+body.fintrack-dark .confirm-text {
+    color: #d1d5db !important;
+}
+
+body.fintrack-dark .modal-card .input,
+body.fintrack-dark .modal-card .select,
+body.fintrack-dark .modal-card .btn-tipo,
+body.fintrack-dark .modal-card .btn-secondary {
+    background: #111827 !important;
+    border-color: #4b5563 !important;
+    color: #f9fafb !important;
+}
+
+body.fintrack-dark .modal-card .input::placeholder {
+    color: #9ca3af !important;
+}
+
+body.fintrack-dark .modal-close {
+    color: #9ca3af !important;
+}
+
+body.fintrack-dark .modal-close:hover {
+    color: #f9fafb !important;
+}
+
+body.fintrack-dark .fintrack-content .page-header h1,
+body.fintrack-dark .fintrack-content .section-title h2,
+body.fintrack-dark .fintrack-content .summary-card strong:not(.income):not(.expense),
+body.fintrack-dark .fintrack-content .bar-info,
+body.fintrack-dark .fintrack-content .category-info,
+body.fintrack-dark .fintrack-content .balance-card strong {
+    color: #f9fafb !important;
+}
+
+body.fintrack-dark .fintrack-content .page-header p,
+body.fintrack-dark .fintrack-content .section-title p,
+body.fintrack-dark .fintrack-content .summary-card span,
+body.fintrack-dark .fintrack-content .summary-card small,
+body.fintrack-dark .fintrack-content .comparison-message,
+body.fintrack-dark .fintrack-content .empty-message,
+body.fintrack-dark .fintrack-content .balance-card span,
+body.fintrack-dark .fintrack-content .balance-card p,
+body.fintrack-dark .fintrack-content .filters label {
+    color: #9ca3af !important;
+}
+
+body.fintrack-dark .fintrack-content .summary-card,
+body.fintrack-dark .fintrack-content .report-card,
+body.fintrack-dark .fintrack-content .balance-card {
+    background: #1f2937 !important;
+    border-color: #374151 !important;
+}
+
+body.fintrack-dark .fintrack-content .filters select {
+    background: #1f2937 !important;
+    border-color: #4b5563 !important;
+    color: #f9fafb !important;
+}
+
+body.fintrack-dark .fintrack-content .bar-background,
+body.fintrack-dark .fintrack-content .category-bar-background,
+body.fintrack-dark .fintrack-content .balance-icon {
+    background: #374151 !important;
+}
+
+body.fintrack-dark .fintrack-content .comparison-message {
+    border-color: #374151 !important;
+}
+
