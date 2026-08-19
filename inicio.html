@@ -88,25 +88,11 @@
 
             </div>
 
-            <div class="sticky inset-x-0 bottom-0 border-t border-gray-100">
-                <a href="perfil.html" class="flex items-center gap-2 bg-white p-4 hover:bg-gray-50 hover:transition-colors">
-                    <img alt=""
-                        src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"
-                        class="size-10 rounded-full object-cover" />
-
-                    <p class="text-xs text-gray-900">
-                        <strong class="block font-medium">Eric Frusciante</strong>
-
-                        <span> eric@frusciante.com </span>
-                    </p>
-                </a>
-            </div>
         </div>
 
-<<<<<<< HEAD
         <div class="m-12 w-full">
             <div class="py-6">
-                <h1 class="text-4xl font-bold py-2">Buenos días, Marcos</h1>
+                <h1 class="text-4xl font-bold py-2">Hola, Marcos</h1>
                 <h2 class="text-xl text-gray-400 font-semibold">Aqui tienes el resumen de tus finanzas</h2>
             </div>
 
@@ -136,54 +122,49 @@
                     <p>No tienes movimientos registrados todavia</p>
                 </div>
             </div>
-=======
-        <div class="fintrack-content fintrack-inicio flex-1 min-h-screen p-6">
 
-            <!-- Aqui iria tu dashboard principal -->
 
-            <div class="relative w-full max-w-5xl mx-auto mt-8 overflow-hidden rounded-xl shadow-lg">
+            <div class="fintrack-content fintrack-inicio flex-1 p-6">
 
-                <div id="carrusel" class="flex transition-transform duration-500 ease-in-out">
+                <!-- Carrusel informativo -->
 
-                    <div class="min-w-full">
-                        <img src="images/carrusel1.png"
-                            class="w-full h-auto object-contain"
-                            alt="Imagen 1">
+                <div class="relative w-full max-w-5xl mx-auto mt-8 overflow-hidden rounded-xl shadow-lg">
+
+                    <div id="carrusel" class="flex transition-transform duration-500 ease-in-out">
+
+                        <div class="min-w-full">
+                            <img src="images/carrusel1.png" class="w-full h-auto object-contain" alt="Imagen 1">
+                        </div>
+
+                        <div class="min-w-full">
+                            <img src="images/carrusel2.jpeg" class="w-full h-auto object-contain" alt="Imagen 2">
+                        </div>
+
+                        <div class="min-w-full">
+                            <img src="images/carrusel3.jpeg" class="w-full h-auto object-contain" alt="Imagen 3">
+                        </div>
+
                     </div>
 
-                    <div class="min-w-full">
-                        <img src="images/carrusel2.jpeg"
-                            class="w-full h-auto object-contain"
-                            alt="Imagen 2">
-                    </div>
+                    <button onclick="anterior()"
+                        class="absolute z-20 left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 text-white text-3xl flex items-center justify-center">
+                        ‹
+                    </button>
 
-                    <div class="min-w-full">
-                        <img src="images/carrusel3.jpeg"
-                            class="w-full h-auto object-contain"
-                            alt="Imagen 3">
-                    </div>
+                    <button onclick="siguiente()"
+                        class="absolute z-20 right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 text-white text-3xl flex items-center justify-center">
+                        ›
+                    </button>
 
                 </div>
 
-                <button onclick="anterior()"
-                    class="absolute z-20 left-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 text-white text-3xl flex items-center justify-center">
-                    ‹
-                </button>
-
-                <button onclick="siguiente()"
-                    class="absolute z-20 right-4 top-1/2 -translate-y-1/2 w-12 h-12 rounded-full bg-black/70 text-white text-3xl flex items-center justify-center">
-                    ›
-                </button>
-
             </div>
 
->>>>>>> 6e7c11104fb22c9b6a3eaa66ef564871d5736387
         </div>
-    </div>
 
 
-    <script src="js/tema.js"></script>
-    <script src="js/carrusel.js"></script>
+        <script src="js/tema.js"></script>
+        <script src="js/carrusel.js"></script>
 </body>
 
 </html>
