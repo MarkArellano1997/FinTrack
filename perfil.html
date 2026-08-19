@@ -1,32 +1,25 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>FinTrack - Perfil</title>
 
-    <!-- Bootstrap se mantiene para formularios, botones, validaciones, select y switch.
-         Se coloca en una capa propia para que no cambie el estilo Tailwind del menú -->
-    <style>
-        @layer theme, base, bootstrap, components, utilities;
-        @import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css") layer(bootstrap);
-    </style>
-
-    <!-- Tailwind conserva el estilo original de la plantilla y del menu-->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
-
-    <!-- Estilos exclusivos de la pantalla Perfil -->
     <link rel="stylesheet" href="css/perfil.css">
+
+    <style type="text/tailwindcss">
+    @custom-variant dark (&:where(.fintrack-dark, .fintrack-dark *));
+    </style>
 </head>
 
-<body>
+<body class="bg-gray-50 text-gray-900">
     <div class="flex">
-        <!-- MENÚ IZQUIERDO: COPIA DEL SIDEBAR ORIGINAL DE inicio.html -->
-        <div class="fintrack-sidebar flex h-screen flex-col justify-between border-e border-gray-100 bg-white md:w-1/5">
+        <!-- MENÚ IZQUIERDO -->
+        <div class="flex h-screen flex-col justify-between border-e border-gray-100 bg-white md:w-1/5">
             <div class="p-4">
                 <div class="h-60 w-60 m-auto">
-                    <img src='images/logo.png' alt='' class="h-full">
+                    <img src="images/logo.png" alt="" class="h-full">
                 </div>
 
                 <div class="">
@@ -34,25 +27,28 @@
 
                     <ul class="mt-4 space-y-1">
                         <li>
-                            <a href="inicio.html" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                            <a href="inicio.html"
+                                class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
                                 Inicio
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                            <a href="movimientos.html"
+                                class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
                                 Movimientos
                             </a>
                         </li>
 
                         <li>
-                            <a href="#" class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
+                            <a href="reportes.html"
+                                class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
                                 Reportes
                             </a>
                         </li>
 
                         <li>
-                            <details open class="group [&_summary::-webkit-details-marker]:hidden"><!--Es parte del sidebar cuenta lo que baja-->
+                            <details class="group [&_summary::-webkit-details-marker]:hidden"><!--Es parte del sidebar cuenta lo que baja-->
                                 <summary
                                     class="flex items-center justify-between rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
                                     Cuenta
@@ -76,14 +72,14 @@
                                     </li>
 
                                     <li>
-                                        <a href="#"
+                                        <a href="perfil.html#preferencias"
                                             class="block rounded-lg px-4 py-2 text-sm font-medium text-gray-700 transition-colors hover:bg-gray-100 hover:text-gray-900">
                                             Configuracion
                                         </a>
                                     </li>
 
                                     <li>
-                                        <a href="#"
+                                        <a href="index.html"
                                             class="w-full rounded-lg px-4 py-2 [text-align:inherit] text-sm font-medium text-gray-500 hover:bg-gray-100 hover:text-gray-700">
                                             Cerrar sesion
                                         </a>
@@ -93,371 +89,225 @@
                         </li>
                     </ul>
                 </div>
-
             </div>
 
             <div class="sticky inset-x-0 bottom-0 border-t border-gray-100"><!-- se jala-->
                 <a href="perfil.html" class="flex items-center gap-2 bg-white p-4 hover:bg-gray-50 hover:transition-colors">
-                    <img id="sidebarFoto" alt="Foto del usuario" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"
+                    <img id="sidebarFoto" alt=""
+                        src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"
                         class="size-10 rounded-full object-cover" />
 
                     <p class="text-xs text-gray-900">
                         <strong id="sidebarNombre" class="block font-medium">Eric Frusciante</strong>
-
                         <span id="sidebarCorreo"> eric@frusciante.com </span>
                     </p>
                 </a>
             </div>
         </div>
 
-
         <!-- CONTENIDO DE PERFIL -->
-        <main id="perfilContenido" class="profile-main flex-1 h-screen overflow-y-auto bg-gray-50">
+        <main id="perfilContenido"
+            class="flex-1 h-screen overflow-y-auto bg-gray-50 text-gray-900 transition-colors duration-200 dark:bg-gray-900 dark:text-gray-50">
 
-            <div class="profile-wrapper">
+            <div class="mx-auto w-[min(1120px,calc(100%-56px))] py-12 max-sm:w-[calc(100%-24px)] max-sm:py-8">
 
                 <section class="mb-7">
-
-                    <p class="profile-eyebrow">MI CUENTA</p>
-
-                    <div class="flex items-start justify-between gap-4">
-
-                        <div>
-                            <h1 class="profile-title">Perfil</h1>
-
-                            <p class="profile-description">
-                                Gestiona tus datos personales, el presupuesto,
-                                metas de ahorro y preferencias visuales. 🙂
-                            </p>
-                        </div>
-                    </div>
-
+                    <p class="mb-2 text-[13px] font-extrabold tracking-[0.13em] text-green-600">MI CUENTA</p>
+                    <h1 class="text-[34px] font-extrabold leading-[1.15] text-gray-900 dark:text-gray-50">Perfil</h1>
+                    <p class="mt-2 text-base text-gray-500 dark:text-gray-400">
+                        Gestiona tus datos personales, el presupuesto, metas de ahorro y preferencias visuales. 🙂
+                    </p>
                 </section>
 
-
                 <!-- DATOS DEL USUARIO -->
-                <section class="profile-card">
-
-                    <div class="profile-card-top">
-
-                        <div class="profile-card-heading profile-card-heading-no-margin">
-
-                            <div class="profile-icon profile-icon-green">
-                                👤
-                            </div>
-
-                            <div>
-                                <h2>Datos del usuario</h2>
-                                <p>Consulta o modifica tu información personal.</p>
-                            </div>
-
+                <section class="rounded-[18px] border border-gray-200 bg-white p-7 shadow-sm dark:border-gray-700 dark:bg-gray-800 max-sm:p-5">
+                    <div class="flex items-center gap-3.5">
+                        <div class="grid size-11 shrink-0 place-items-center rounded-xl bg-green-100 text-xl">👤</div>
+                        <div>
+                            <h2 class="text-lg font-extrabold text-gray-900 dark:text-gray-50">Datos del usuario</h2>
+                            <p class="mt-0.5 text-[13px] text-gray-500 dark:text-gray-400">Consulta o modifica tu información personal.</p>
                         </div>
-
                     </div>
 
-                    <div class="profile-divider"></div>
-
+                    <div class="my-[22px] h-px bg-gray-200 dark:bg-gray-700"></div>
 
                     <!-- PERFIL ACTUAL -->
-                    <div class="saved-profile">
+                    <div class="flex items-center gap-[18px] max-sm:flex-col max-sm:items-start">
+                        <img id="fotoPerfilVista"
+                            src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"
+                            alt="Foto de perfil"
+                            class="size-[78px] shrink-0 rounded-full border-4 border-green-100 object-cover">
 
-                        <img id="fotoPerfilVista" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"alt="Foto de perfil"class="saved-profile-photo">
-
-                        <div class="saved-profile-text">
-                            <p class="saved-label">PERFIL ACTUAL</p>
-                            <h3 id="nombrePerfilVista">Eric Frusciante</h3>
-                            <p id="correoPerfilVista">eric@frusciante.com</p>
+                        <div>
+                            <p class="mb-1 text-[11px] font-extrabold tracking-[0.09em] text-green-600">PERFIL ACTUAL</p>
+                            <h3 id="nombrePerfilVista" class="text-xl font-extrabold text-gray-900 dark:text-gray-50">Eric Frusciante</h3>
+                            <p id="correoPerfilVista" class="mt-1 text-[13px] text-gray-500 dark:text-gray-400">eric@frusciante.com</p>
                         </div>
-
                     </div>
 
+                    <div class="my-[22px] h-px bg-gray-200 dark:bg-gray-700"></div>
 
                     <!-- EDITOR -->
-                    <div class="profile-editor">
-
-                        <div class="profile-divider"></div>
-
-                        <div class="editor-heading">
-                            <h3>Modificar perfil</h3>
-                            <p>
-                                Cambia tu foto, nombre, apellidos o correo.
-                            </p>
+                    <div>
+                        <div class="mb-[22px]">
+                            <h3 class="text-lg font-extrabold text-gray-900 dark:text-gray-50">Modificar perfil</h3>
+                            <p class="mt-1 text-[13px] text-gray-500 dark:text-gray-400">Cambia tu foto, nombre, apellidos o correo.</p>
                         </div>
 
-
                         <!-- FOTO -->
-                        <div class="photo-editor">
-
-                            <img id="fotoPreview" src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160" alt="Vista previa de foto" class="photo-preview">
+                        <div class="flex items-center gap-5 max-sm:flex-col max-sm:items-start">
+                            <img id="fotoPreview"
+                                src="https://images.unsplash.com/photo-1600486913747-55e5470d6f40?auto=format&fit=crop&q=80&w=1160"
+                                alt="Vista previa de foto"
+                                class="size-[92px] shrink-0 rounded-full border-4 border-green-100 bg-gray-100 object-cover">
 
                             <div>
+                                <p class="mb-2 text-[13px] font-bold text-gray-700 dark:text-gray-300">Cambiar foto</p>
 
-                                <p class="profile-label mb-2">
-                                    Cambiar foto
-                                </p>
-
-                                <div class="flex flex-wrap gap-2">
-
-                                    <label
-                                        for="fotoUsuario"
-                                        class="btn btn-outline-success btn-sm photo-file-label">
+                                <div class="flex flex-wrap items-center gap-2">
+                                    <label for="fotoUsuario"
+                                        class="inline-flex min-h-10 cursor-pointer items-center rounded-lg border border-green-600 px-4 py-2 text-sm font-semibold text-green-700 transition hover:bg-green-50 dark:text-green-400 dark:hover:bg-gray-700">
                                         📷 Seleccionar foto
                                     </label>
 
-                                    <input
-                                        id="fotoUsuario"
-                                        type="file"
-                                        accept="image/*"
-                                        class="hidden">
+                                    <input id="fotoUsuario" type="file" accept="image/*" class="hidden">
 
-                                    <button
-                                        id="quitarFoto"
-                                        type="button"
-                                        class="btn btn-link btn-sm text-secondary p-0">
+                                    <button id="quitarFoto" type="button"
+                                        class="rounded-lg px-3 py-2 text-sm font-medium text-gray-500 transition hover:bg-gray-100 hover:text-gray-700 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-gray-200">
                                         Quitar foto
                                     </button>
-
                                 </div>
 
-                                <p id="fotoAyuda" class="photo-help">
-                                    Imagen. Máximo 2 MB.
-                                </p>
-
+                                <p id="fotoAyuda" class="mt-2 text-[11px] text-gray-400">Imagen. Máximo 2 MB.</p>
                             </div>
-
                         </div>
 
-                        <div class="profile-divider"></div>
-
+                        <div class="my-[22px] h-px bg-gray-200 dark:bg-gray-700"></div>
 
                         <form id="formPerfil" novalidate>
-
-                            <div class="row g-4">
-
-                                <div class="col-md-6">
-                                    <label for="nombre" class="profile-label form-label">
-                                        Nombre
-                                    </label>
-
-                                    <input
-                                        id="nombre"
-                                        type="text"
-                                        class="profile-input form-control"
-                                        required>
-
-                                    <div class="invalid-feedback">
-                                        Ingresa tu nombre.
-                                    </div>
+                            <div class="grid grid-cols-2 gap-6 max-md:grid-cols-1">
+                                <div>
+                                    <label for="nombre" class="mb-2 block text-[13px] font-bold text-gray-700 dark:text-gray-300">Nombre</label>
+                                    <input id="nombre" type="text" required
+                                        class="min-h-[50px] w-full rounded-xl border border-gray-300 bg-white px-[15px] text-gray-900 outline-none transition focus:border-green-400 focus:ring-3 focus:ring-green-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:focus:ring-green-900/40">
+                                    <p id="errorNombre" class="mt-1 hidden text-xs font-medium text-red-600">Ingresa tu nombre.</p>
                                 </div>
 
-
-                                <div class="col-md-6">
-                                    <label for="apellido" class="profile-label form-label">
-                                        Apellidos
-                                    </label>
-
-                                    <input
-                                        id="apellido"
-                                        type="text"
-                                        class="profile-input form-control"
-                                        required>
-
-                                    <div class="invalid-feedback">
-                                        Ingresa tus apellidos.
-                                    </div>
+                                <div>
+                                    <label for="apellido" class="mb-2 block text-[13px] font-bold text-gray-700 dark:text-gray-300">Apellidos</label>
+                                    <input id="apellido" type="text" required
+                                        class="min-h-[50px] w-full rounded-xl border border-gray-300 bg-white px-[15px] text-gray-900 outline-none transition focus:border-green-400 focus:ring-3 focus:ring-green-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:focus:ring-green-900/40">
+                                    <p id="errorApellido" class="mt-1 hidden text-xs font-medium text-red-600">Ingresa tus apellidos.</p>
                                 </div>
-
                             </div>
-
 
                             <div class="mt-5">
-
-                                <label for="correo" class="profile-label form-label">
-                                    Correo electrónico
-                                </label>
-
-                                <input
-                                    id="correo"
-                                    type="email"
-                                    class="profile-input form-control"
-                                    required>
-
-                                <div class="invalid-feedback">
-                                    Ingresa un correo válido.
-                                </div>
-
+                                <label for="correo" class="mb-2 block text-[13px] font-bold text-gray-700 dark:text-gray-300">Correo electrónico</label>
+                                <input id="correo" type="email" required
+                                    class="min-h-[50px] w-full rounded-xl border border-gray-300 bg-white px-[15px] text-gray-900 outline-none transition focus:border-green-400 focus:ring-3 focus:ring-green-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:focus:ring-green-900/40">
+                                <p id="errorCorreo" class="mt-1 hidden text-xs font-medium text-red-600">Ingresa un correo válido.</p>
                             </div>
 
-
-                            <div class="form-actions">
-
-                                <button
-                                    type="submit"
-                                    class="btn btn-success px-4">
+                            <div class="mt-6 flex justify-end">
+                                <button type="submit"
+                                    class="rounded-lg bg-green-600 px-4 py-2.5 text-sm font-semibold text-white transition hover:bg-green-700 focus:outline-none focus:ring-3 focus:ring-green-200">
                                     💾 Guardar cambios
                                 </button>
-
                             </div>
-
                         </form>
-
                     </div>
-
                 </section>
 
-
                 <!-- PRESUPUESTO Y META -->
-                <div class="profile-grid profile-grid-two mt-6">
-
-                    <section class="profile-card profile-card-no-margin">
-
-                        <div class="profile-card-heading">
-
-                            <div class="profile-icon profile-icon-green">
-                                💳
-                            </div>
-
+                <div class="mt-6 grid grid-cols-2 gap-6 max-lg:grid-cols-1">
+                    <section class="h-full rounded-[18px] border border-gray-200 bg-white p-7 shadow-sm dark:border-gray-700 dark:bg-gray-800 max-sm:p-5">
+                        <div class="mb-6 flex items-center gap-3.5">
+                            <div class="grid size-11 shrink-0 place-items-center rounded-xl bg-green-100 text-xl">💳</div>
                             <div>
-                                <h2>Presupuesto mensual</h2>
-                                <p>Define cuánto deseas gastar al mes.</p>
+                                <h2 class="text-lg font-extrabold text-gray-900 dark:text-gray-50">Presupuesto mensual</h2>
+                                <p class="mt-0.5 text-[13px] text-gray-500 dark:text-gray-400">Define cuánto deseas gastar al mes.</p>
                             </div>
-
                         </div>
 
-                        <label for="presupuesto" class="profile-label">
-                            Presupuesto
-                        </label>
-
-                        <div class="profile-money-input">
-
-                            <span id="simboloPresupuesto">S/</span>
-
-                            <input
-                                id="presupuesto"
-                                type="number"
-                                min="0"
-                                placeholder="Ingresa tu presupuesto">
-
+                        <label for="presupuesto" class="mb-2 block text-[13px] font-bold text-gray-700 dark:text-gray-300">Presupuesto</label>
+                        <div class="flex min-h-[50px] overflow-hidden rounded-xl border border-gray-300 bg-white transition focus-within:border-green-400 focus-within:ring-3 focus-within:ring-green-100 dark:border-gray-600 dark:bg-gray-900 dark:focus-within:ring-green-900/40">
+                            <span id="simboloPresupuesto" class="grid place-items-center border-r border-gray-200 bg-gray-50 px-3.5 font-bold text-gray-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100">S/</span>
+                            <input id="presupuesto" type="number" min="0" placeholder="Ingresa tu presupuesto"
+                                class="h-12 min-w-0 flex-1 bg-transparent px-3.5 text-gray-900 outline-none placeholder:text-gray-400 dark:text-gray-50">
                         </div>
 
-                        <button
-                            id="guardarPresupuesto"
-                            type="button"
-                            class="btn btn-outline-success mt-4">
+                        <button id="guardarPresupuesto" type="button"
+                            class="mt-4 rounded-lg border border-green-600 px-4 py-2.5 text-sm font-semibold text-green-700 transition hover:bg-green-50 dark:text-green-400 dark:hover:bg-gray-700">
                             Guardar presupuesto
                         </button>
-
                     </section>
 
-
-                    <section class="profile-card profile-card-no-margin">
-
-                        <div class="profile-card-heading">
-
-                            <div class="profile-icon profile-icon-blue">
-                                🐖
-                            </div>
-
+                    <section class="h-full rounded-[18px] border border-gray-200 bg-white p-7 shadow-sm dark:border-gray-700 dark:bg-gray-800 max-sm:p-5">
+                        <div class="mb-6 flex items-center gap-3.5">
+                            <div class="grid size-11 shrink-0 place-items-center rounded-xl bg-blue-100 text-xl">🐖</div>
                             <div>
-                                <h2>Meta de ahorro</h2>
-                                <p>Establece cuánto deseas ahorrar.</p>
+                                <h2 class="text-lg font-extrabold text-gray-900 dark:text-gray-50">Meta de ahorro</h2>
+                                <p class="mt-0.5 text-[13px] text-gray-500 dark:text-gray-400">Establece cuánto deseas ahorrar.</p>
                             </div>
-
                         </div>
 
-                        <label for="metaAhorro" class="profile-label">
-                            Meta mensual
-                        </label>
-
-                        <div class="profile-money-input">
-
-                            <span id="simboloMeta">S/</span>
-
-                            <input
-                                id="metaAhorro"
-                                type="number"
-                                min="0"
-                                placeholder="Ingresa tu meta">
-
+                        <label for="metaAhorro" class="mb-2 block text-[13px] font-bold text-gray-700 dark:text-gray-300">Meta mensual</label>
+                        <div class="flex min-h-[50px] overflow-hidden rounded-xl border border-gray-300 bg-white transition focus-within:border-green-400 focus-within:ring-3 focus-within:ring-green-100 dark:border-gray-600 dark:bg-gray-900 dark:focus-within:ring-green-900/40">
+                            <span id="simboloMeta" class="grid place-items-center border-r border-gray-200 bg-gray-50 px-3.5 font-bold text-gray-700 dark:border-gray-600 dark:bg-gray-700 dark:text-gray-100">S/</span>
+                            <input id="metaAhorro" type="number" min="0" placeholder="Ingresa tu meta"
+                                class="h-12 min-w-0 flex-1 bg-transparent px-3.5 text-gray-900 outline-none placeholder:text-gray-400 dark:text-gray-50">
                         </div>
 
-                        <button
-                            id="guardarMeta"
-                            type="button"
-                            class="btn btn-outline-success mt-4">
+                        <button id="guardarMeta" type="button"
+                            class="mt-4 rounded-lg border border-green-600 px-4 py-2.5 text-sm font-semibold text-green-700 transition hover:bg-green-50 dark:text-green-400 dark:hover:bg-gray-700">
                             Guardar meta
                         </button>
-
                     </section>
-
                 </div>
 
-
                 <!-- PREFERENCIAS -->
-                <section class="profile-card mt-6">
-
-                    <div class="profile-card-heading">
-
-                        <div class="profile-icon profile-icon-gray">
-                            ⚙️
-                        </div>
-
+                <section id="preferencias" class="mt-6 rounded-[18px] border border-gray-200 bg-white p-7 shadow-sm dark:border-gray-700 dark:bg-gray-800 max-sm:p-5">
+                    <div class="mb-6 flex items-center gap-3.5">
+                        <div class="grid size-11 shrink-0 place-items-center rounded-xl bg-gray-100 text-xl">⚙️</div>
                         <div>
-                            <h2>Preferencias</h2>
-                            <p>Personaliza tu experiencia en FinTrack.</p>
+                            <h2 class="text-lg font-extrabold text-gray-900 dark:text-gray-50">Preferencias</h2>
+                            <p class="mt-0.5 text-[13px] text-gray-500 dark:text-gray-400">Personaliza tu experiencia en FinTrack.</p>
                         </div>
-
                     </div>
 
-                    <div class="profile-preference-row">
-
+                    <div class="flex items-center justify-between gap-6 max-sm:flex-col max-sm:items-start">
                         <div>
-                            <h3>Moneda</h3>
-                            <p>Selecciona la moneda utilizada en el sistema. No convierte los montos automáticamente.</p>
+                            <h3 class="text-[15px] font-extrabold text-gray-900 dark:text-gray-50">Moneda</h3>
+                            <p class="mt-1 text-[13px] text-gray-500 dark:text-gray-400">Selecciona la moneda utilizada en el sistema. No convierte los montos automáticamente.</p>
                         </div>
 
-                        <select id="moneda" class="profile-select form-select">
+                        <select id="moneda"
+                            class="min-h-[50px] w-60 rounded-xl border border-gray-300 bg-white px-3.5 text-gray-900 outline-none transition focus:border-green-400 focus:ring-3 focus:ring-green-100 dark:border-gray-600 dark:bg-gray-900 dark:text-gray-50 dark:focus:ring-green-900/40 max-sm:w-full">
                             <option value="PEN">Sol peruano (S/)</option>
                             <option value="USD">Dólar estadounidense ($)</option>
                             <option value="EUR">Euro (€)</option>
                         </select>
-
                     </div>
 
+                    <div class="my-[22px] h-px bg-gray-200 dark:bg-gray-700"></div>
 
-                    <div class="profile-divider"></div>
-
-
-                    <div class="profile-preference-row">
-
+                    <div class="flex items-center justify-between gap-6 max-sm:flex-col max-sm:items-start">
                         <div>
-                            <h3>🌙 Modo oscuro</h3>
-                            <p>Cambia la apariencia del área de contenido.</p>
+                            <h3 class="text-[15px] font-extrabold text-gray-900 dark:text-gray-50">🌙 Modo oscuro</h3>
+                            <p class="mt-1 text-[13px] text-gray-500 dark:text-gray-400">Cambia la apariencia del área de contenido.</p>
                         </div>
 
-                        <div class="form-check form-switch m-0">
-                            <input
-                                id="modoOscuro"
-                                class="form-check-input"
-                                type="checkbox"
-                                role="switch"
-                                aria-label="Activar modo oscuro">
-                        </div>
-
+                        <label class="relative inline-flex cursor-pointer items-center">
+                            <input id="modoOscuro" type="checkbox" class="peer sr-only" aria-label="Activar modo oscuro">
+                            <span class="h-6 w-11 rounded-full bg-gray-300 transition peer-checked:bg-green-600 peer-focus:ring-3 peer-focus:ring-green-200 after:absolute after:left-1 after:top-1 after:size-4 after:rounded-full after:bg-white after:transition-all after:content-[''] peer-checked:after:translate-x-5"></span>
+                        </label>
                     </div>
-
                 </section>
-
             </div>
-
-
-
-
         </main>
     </div>
 
-    <!-- JavaScript exclusivo de Perfil -->
+    <script src="js/tema.js"></script>
     <script src="js/perfil.js"></script>
 </body>
-
 </html>

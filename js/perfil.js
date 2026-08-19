@@ -39,7 +39,9 @@ const simboloPresupuesto = document.getElementById("simboloPresupuesto");
 const simboloMeta = document.getElementById("simboloMeta");
 
 const modoOscuro = document.getElementById("modoOscuro");
-const perfilContenido = document.getElementById("perfilContenido");
+const errorNombre = document.getElementById("errorNombre");
+const errorApellido = document.getElementById("errorApellido");
+const errorCorreo = document.getElementById("errorCorreo");
 
 let fotoTemporal = FOTO_ORIGINAL;
 
@@ -111,30 +113,22 @@ quitarFoto.addEventListener("click", () => {
 
 
 // 4. VALIDAR Y GUARDAR EL PERFIL
-// Bootstrap usa la clase is-invalid para mostrar invalid-feedback.
+function mostrarError(campo, mensaje, hayError) {
+    mensaje.classList.toggle("hidden", !hayError);
+    campo.classList.toggle("border-red-500", hayError);
+    campo.setAttribute("aria-invalid", hayError ? "true" : "false");
+}
+
 function validarFormulario() {
-    let valido = true;
+    const nombreInvalido = !nombre.value.trim();
+    const apellidoInvalido = !apellido.value.trim();
+    const correoInvalido = !correo.value.trim() || !correo.validity.valid;
 
-    nombre.classList.remove("is-invalid");
-    apellido.classList.remove("is-invalid");
-    correo.classList.remove("is-invalid");
+    mostrarError(nombre, errorNombre, nombreInvalido);
+    mostrarError(apellido, errorApellido, apellidoInvalido);
+    mostrarError(correo, errorCorreo, correoInvalido);
 
-    if (!nombre.value.trim()) {
-        nombre.classList.add("is-invalid");
-        valido = false;
-    }
-
-    if (!apellido.value.trim()) {
-        apellido.classList.add("is-invalid");
-        valido = false;
-    }
-
-    if (!correo.value.trim() || !correo.validity.valid) {
-        correo.classList.add("is-invalid");
-        valido = false;
-    }
-
-    return valido;
+    return !nombreInvalido && !apellidoInvalido && !correoInvalido;
 }
 
 formPerfil.addEventListener("submit", (event) => {
@@ -215,17 +209,14 @@ guardarMeta.addEventListener("click", () => {
     localStorage.setItem("fintrackMetaAhorro", valor);
 });
 
-
 // 7. MODO OSCURO
-// checked devuelve true si el switch está activado y false si está apagado.
 modoOscuro.addEventListener("change", () => {
-    if (modoOscuro.checked) {
-        perfilContenido.classList.add("profile-dark");
-        localStorage.setItem("fintrackModoOscuro", "true");
-    } else {
-        perfilContenido.classList.remove("profile-dark");
-        localStorage.setItem("fintrackModoOscuro", "false");
-    }
+    localStorage.setItem(
+        "fintrackModoOscuro",
+        modoOscuro.checked ? "true" : "false"
+    );
+
+    aplicarTemaFinTrack();
 });
 
 
@@ -240,13 +231,8 @@ function cargarDatosIniciales() {
     actualizarMoneda(monedaGuardada);
 
     const oscuroGuardado = localStorage.getItem("fintrackModoOscuro") === "true";
-    modoOscuro.checked = oscuroGuardado;
+    modoOscuro.checked = oscuroGuardado;    
 
-    if (oscuroGuardado) {
-        perfilContenido.classList.add("profile-dark");
-    } else {
-        perfilContenido.classList.remove("profile-dark");
-    }
 }
 
 cargarDatosIniciales();
